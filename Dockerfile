@@ -36,7 +36,9 @@ RUN cd /usr/local/bin && \
     cd -
     
 RUN mkdir -p /backups && \
-    mkdir -p /var/urbackup
+    chown urbackup:urbackup /backups && \
+    mkdir -p /var/urbackup && \
+    chown urbackup:urbackup /var/urbackup
 
 COPY start /usr/bin/start
 
