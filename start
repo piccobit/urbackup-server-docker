@@ -1,5 +1,8 @@
 #!/bin/bash
 
+gocrpytfs /cipher/backups /backups
+gocrpytfs /cipher/database /var/urbackup
+
 echo "/backups" > /var/urbackup/backupfolder
 chown urbackup:urbackup /backups
 chown urbackup:urbackup /var/urbackup
