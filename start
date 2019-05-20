@@ -1,15 +1,15 @@
 #!/bin/bash
 
 if [ ! -d /cipher/backups ]; then
-su -s /bin/bash -c 'gocryptfs -init -passfile /tmp/backups.passwd /cipher/backups' urbackup
+gocryptfs -init -passfile /tmp/backups.passwd /cipher/backups
 fi
 
 if [ ! -d /cipher/database ]; then
-su -s /bin/bash -c 'gocryptfs -init -passfile /tmp/database.passwd /cipher/database' urbackup
+gocryptfs -init -passfile /tmp/database.passwd /cipher/database
 fi
 
-su -s /bin/bash -c 'gocryptfs -passfile /tmp/backups.passwd /cipher/backups /backups'
-su -s /bin/bash -c 'gocryptfs -passfile /tmp/database.passwd /cipher/database /var/urbackup'
+gocryptfs -passfile /tmp/backups.passwd /cipher/backups /backups
+gocryptfs -passfile /tmp/database.passwd /cipher/database /var/urbackup
 
 echo "/backups" > /var/urbackup/backupfolder
 
