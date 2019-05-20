@@ -34,6 +34,9 @@ RUN cd /usr/local/bin && \
     tar xf gocryptfs_v1.7_linux-static_amd64.tar.gz && \
     rm gocryptfs_v1.7_linux-static_amd64.tar.gz gocryptfs.1 && \
     cd -
+    
+RUN mkdir -p /backups && \
+    mkdir -p /var/urbackup
 
 COPY start /usr/bin/start
 
