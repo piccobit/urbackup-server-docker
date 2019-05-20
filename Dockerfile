@@ -35,14 +35,15 @@ RUN cd /usr/local/bin && \
     rm gocryptfs_v1.7_linux-static_amd64.tar.gz gocryptfs.1 && \
     cd -
     
-RUN mkdir -p /cipher && \
-    chown urbackup:urbackup /cipher
+RUN mkdir -p /backups && \
+    chown urbackup:urbackup /backups && \
+    mkdir -p /var/urbackup && \
+    chown urbackup:urbackup /var/urbackup
 
 COPY start /usr/bin/start
 
 EXPOSE 55413/tcp 55414/tcp 55415/tcp 35623/udp
 
-USER urbackup
 VOLUME [ "/backups", "/var/urbackup", "/var/log", "/usr/share/urbackup" ]
 ENTRYPOINT ["/usr/bin/start"]
 CMD ["run"]

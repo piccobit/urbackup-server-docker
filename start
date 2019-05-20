@@ -2,12 +2,14 @@
 
 if [ ! -d /cipher/backups ]; then
 mkdir -p /cipher/backups
-gocryptfs -init -passfile /tmp/backups.passwd /cipher/backups
+chown urbackup:urbackup /ciper/backups
+sudo -u 'urbackup gocryptfs -init -passfile /tmp/backups.passwd /cipher/backups'
 fi
 
 if [ ! -d /cipher/database ]; then
 mkdir -p /cipher/database
-gocryptfs -init -passfile /tmp/database.passwd /cipher/database
+chown urbackup:urbackup /ciper/database
+sudo -u urbackup 'gocryptfs -init -passfile /tmp/database.passwd /cipher/database'
 fi
 
 gocryptfs -passfile /tmp/backups.passwd /cipher/backups /backups
