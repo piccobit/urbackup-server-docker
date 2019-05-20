@@ -8,7 +8,7 @@ fi
 
 if [ ! -d "/cipher/database" ]; then
 mkdir -p /cipher/database
-chown urbackup:urbackup /ciper/database
+chown urbackup:urbackup /cipher/database
 sudo -u urbackup gocryptfs -init -passfile /tmp/database.passwd /cipher/database
 fi
 
