@@ -2,7 +2,7 @@
 
 if [ ! -d "/cipher/backups" ]; then
 mkdir -p /cipher/backups
-chown urbackup:urbackup /ciper/backups
+chown urbackup:urbackup /cihper/backups
 sudo -u urbackup gocryptfs -init -passfile /tmp/backups.passwd /cipher/backups
 fi
 
