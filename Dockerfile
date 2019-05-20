@@ -26,13 +26,13 @@ RUN echo 'deb http://download.opensuse.org/repositories/home:/uroni/Debian_9.0/ 
     apt-get update &&\
     echo "urbackup-server urbackup/backuppath string /backups" | debconf-set-selections &&\
     export DEBIAN_FRONTEND=noninteractive &&\
-    apt-get install -y --no-install-recommends --allow-unauthenticated urbackup-server btrfs-tools openssl curl ca-certificates &&\
+    apt-get install -y --no-install-recommends --allow-unauthenticated urbackup-server btrfs-tools curl ca-certificates &&\
     rm -rf /var/lib/apt/lists/*
     
 RUN cd /usr/local/bin && \
     curl -LsSO https://github.com/rfjakob/gocryptfs/releases/download/v1.7/gocryptfs_v1.7_linux-static_amd64.tar.gz && \
-    tar xf https://github.com/rfjakob/gocryptfs/releases/download/v1.7/gocryptfs_v1.7_linux-static_amd64.tar.gz && \
-    rm https://github.com/rfjakob/gocryptfs/releases/download/v1.7/gocryptfs_v1.7_linux-static_amd64.tar.gz gocryptfs.1 && \
+    tar xf gocryptfs_v1.7_linux-static_amd64.tar.gz && \
+    rm gocryptfs_v1.7_linux-static_amd64.tar.gz gocryptfs.1 && \
     cd -
 
 COPY start /usr/bin/start
