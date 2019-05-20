@@ -29,11 +29,11 @@ RUN echo 'deb http://download.opensuse.org/repositories/home:/uroni/Debian_9.0/ 
     apt-get install -y --no-install-recommends --allow-unauthenticated urbackup-server btrfs-tools &&\
     rm -rf /var/lib/apt/lists/*
     
-RUN pushd /usr/local/bin && \
+RUN cd /usr/local/bin && \
     curl -LsSO https://github.com/rfjakob/gocryptfs/releases/download/v1.7/gocryptfs_v1.7_linux-static_amd64.tar.gz && \
     tar xf https://github.com/rfjakob/gocryptfs/releases/download/v1.7/gocryptfs_v1.7_linux-static_amd64.tar.gz && \
     rm https://github.com/rfjakob/gocryptfs/releases/download/v1.7/gocryptfs_v1.7_linux-static_amd64.tar.gz gocryptfs.1 && \
-    popd
+    cd -
 
 COPY start /usr/bin/start
 
