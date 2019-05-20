@@ -12,8 +12,8 @@ chown urbackup:urbackup /cipher/database
 sudo -u urbackup gocryptfs -init -passfile /tmp/database.passwd /cipher/database
 fi
 
-gocryptfs -nosyslog -passfile /tmp/backups.passwd /cipher/backups /backups
-gocryptfs -nosyslog -passfile /tmp/database.passwd /cipher/database /var/urbackup
+gocryptfs -allow_other -nosyslog -passfile /tmp/backups.passwd /cipher/backups /backups
+gocryptfs -allow_other -nosyslog -passfile /tmp/database.passwd /cipher/database /var/urbackup
 
 echo "/backups" > /var/urbackup/backupfolder
 
