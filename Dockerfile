@@ -26,7 +26,7 @@ RUN echo 'deb http://download.opensuse.org/repositories/home:/uroni/Debian_9.0/ 
     apt-get update &&\
     echo "urbackup-server urbackup/backuppath string /backups" | debconf-set-selections &&\
     export DEBIAN_FRONTEND=noninteractive &&\
-    apt-get install -y --no-install-recommends --allow-unauthenticated urbackup-server btrfs-tools curl ca-certificates &&\
+    apt-get install -y --no-install-recommends --allow-unauthenticated urbackup-server btrfs-tools curl ca-certificates sudo &&\
     rm -rf /var/lib/apt/lists/*
     
 RUN cd /usr/local/bin && \
