@@ -35,10 +35,8 @@ RUN cd /usr/local/bin && \
     rm gocryptfs_v1.7_linux-static_amd64.tar.gz gocryptfs.1 && \
     cd -
     
-RUN mkdir -p /backups && \
-    chown urbackup:urbackup /backups && \
-    mkdir -p /var/urbackup && \
-    chown urbackup:urbackup /var/urbackup
+RUN mkdir -p /cipher && \
+    chown urbackup:urbackup /cipher
 
 COPY start /usr/bin/start
 
