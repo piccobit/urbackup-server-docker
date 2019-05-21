@@ -7,7 +7,8 @@ fi
 
 if [ ! -d "/cipher/database" ]; then
 mkdir -p /cipher/database
-gocryptfs -init -passfile /tmp/database.passwd /cipher/database
+chown urbackup:urbackup /cipher/database
+sudo -u urbackup gocryptfs -init -passfile /tmp/database.passwd /cipher/database
 fi
 
 gocryptfs -allow_other -nosyslog -passfile /tmp/backups.passwd /cipher/backups /backups
