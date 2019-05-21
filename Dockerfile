@@ -36,8 +36,10 @@ RUN cd /usr/local/bin && \
     cd -
     
 RUN mkdir -p /backups && \
+    chown urbackup:urbackup /backups && \
     rm -rf /var/urbackup && \
     mkdir -p /var/urbackup
+    chown urbackup:urbackup /var/urbackup
 
 RUN sed -i -e 's/#user_allow_other/user_allow_other/' /etc/fuse.conf
 
