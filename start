@@ -2,20 +2,17 @@
 
 if [ ! -d "/cipher/backups" ]; then
 mkdir -p /cipher/backups
-chown urbackup:urbackup /cipher/backups
-sudo -u urbackup gocryptfs -init -passfile /tmp/backups.passwd /cipher/backups
+gocryptfs -init -passfile /tmp/backups.passwd /cipher/backups
 fi
 
 if [ ! -d "/cipher/database" ]; then
 mkdir -p /cipher/database
-chown urbackup:urbackup /cipher/database
-sudo -u urbackup gocryptfs -init -passfile /tmp/database.passwd /cipher/database
+gocryptfs -init -passfile /tmp/database.passwd /cipher/database
 fi
 
 gocryptfs -allow_other -nosyslog -passfile /tmp/backups.passwd /cipher/backups /backups
 gocryptfs -allow_other -nosyslog -passfile /tmp/database.passwd /cipher/database /var/urbackup
 
 echo "/backups" > /var/urbackup/backupfolder
-chown urbackup:urbackup /var/urbackup/backupfolder
 
 exec urbackupsrv "$@"
