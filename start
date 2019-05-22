@@ -18,6 +18,6 @@ gocryptfs -allow_other -nosyslog -passfile /tmp/database.passwd /cipher/database
 echo "/backups" > /var/urbackup/backupfolder
 
 sed -i -e "s/LOGLEVEL=\"warn\"/LOGLEVEL=\"${LOGLEVEL}\"/" /etc/default/urbackupsrv
-sed -i -e "s/DAEMON_TMPDIR=\"/tmp\"/DAEMON_TMPDIR=\"${DAEMON_TMPDIR}\"/" /etc/default/urbackupsrv
+sed -i -e "s/DAEMON_TMPDIR=\"\/tmp\"/DAEMON_TMPDIR=\"${DAEMON_TMPDIR}\"/" /etc/default/urbackupsrv
 
 exec urbackupsrv "$@"
