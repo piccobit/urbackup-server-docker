@@ -17,6 +17,6 @@ gocryptfs -allow_other -nosyslog -passfile /tmp/database.passwd /cipher/database
 
 echo "/backups" > /var/urbackup/backupfolder
 
-sed -i -e "s/LOGLEVEL=\"warn\"/LOGLEVEL=\"${LOGLEVEL}\"/" /etc/defaults/urbackupsrv
+sed -i -e "s/LOGLEVEL=\"warn\"/LOGLEVEL=\"${LOGLEVEL}\"/" /etc/default/urbackupsrv
 
 exec urbackupsrv "$@"
